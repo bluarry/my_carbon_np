@@ -1,0 +1,24 @@
+version: "3"
+services:
+    
+    db:
+     image: mysql/mysql-server:5.7.23
+     ports:
+       - "3306:3306"
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: GTX1080ti.
+     volumes:
+       - /data/mysql:/var/lib/mysql
+
+    ngxphp:
+     image: cb:1.5
+     ports:
+       - "80:80"
+       - "81:81"
+     links:
+       - db:db
+     volumes:
+       - /data/nginx/sites-enabled:/etc/nginx/sites-enabled
+       - /data/nginx/conf.d:/etc/nginx/conf.d 
+       - /data/www/html81:/var/www/html81 

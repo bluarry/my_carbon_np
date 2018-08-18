@@ -1,0 +1,14 @@
+#docker-compose版本，这里的3不要动
+version: "3"
+services:
+   
+    db:
+     image: mysql/mysql-server:5.7.23
+     ports:
+       - "3306:3306"
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: GTX1080ti.
+     volumes:
+       - /data/mysql:/var/lib/mysql
+
